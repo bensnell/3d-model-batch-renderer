@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<group>
+	<Params>
+		<Starting_Index>0</Starting_Index>
+		<In_Models_Folder></In_Models_Folder>
+		<In_Model_Ext>stl</In_Model_Ext>
+		<Out_Folder></Out_Folder>
+	</Params>
+	<group />
+</group>
