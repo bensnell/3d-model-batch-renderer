@@ -45,6 +45,8 @@ SubModule: ExternalAddons/ofxRemoteUI https://github.com/local-projects/ofxRemot
 SubModule: ExternalAddons/ofxScreenSetup https://github.com/local-projects/ofxScreenSetup.git
 SubModule: ExternalAddons/ofxSuperLog https://github.com/local-projects/ofxSuperLog.git
 SubModule: ExternalAddons/ofxTimeMeasurements https://github.com/local-projects/ofxTimeMeasurements.git
+SubModule: ExternalAddons/ofxGifEncoder https://github.com/bensnell/ofxGifEncoder.git
+SubModule: ExternalAddons/ofxSTLModel https://github.com/bensnell/ofxSTLModel.git
 }
 
 

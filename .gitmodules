@@ -1,3 +1,21 @@
 [submodule "OpenFrameworks"]
 	path = OpenFrameworks
 	url = https://github.com/local-projects/openFrameworks.git
+[submodule "ExternalAddons/ofxRemoteUI"]
+	path = ExternalAddons/ofxRemoteUI
+	url = https://github.com/local-projects/ofxRemoteUI.git
+[submodule "ExternalAddons/ofxScreenSetup"]
+	path = ExternalAddons/ofxScreenSetup
+	url = https://github.com/local-projects/ofxScreenSetup.git
+[submodule "ExternalAddons/ofxSuperLog"]
+	path = ExternalAddons/ofxSuperLog
+	url = https://github.com/local-projects/ofxSuperLog.git
+[submodule "ExternalAddons/ofxTimeMeasurements"]
+	path = ExternalAddons/ofxTimeMeasurements
+	url = https://github.com/local-projects/ofxTimeMeasurements.git
+[submodule "ExternalAddons/ofxGifEncoder"]
+	path = ExternalAddons/ofxGifEncoder
+	url = https://github.com/bensnell/ofxGifEncoder.git
+[submodule "ExternalAddons/ofxSTLModel"]
+	path = ExternalAddons/ofxSTLModel
+	url = https://github.com/bensnell/ofxSTLModel.git
