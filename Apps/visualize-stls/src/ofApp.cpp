@@ -3,29 +3,57 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 
-    params.setName("Params");
-    params.add(inFolderModelPath.set("In Models Folder", ""));
-    params.add(inModelExt.set("In Model Ext", "stl"));
-    params.add(outFolderPath.set("Out Folder", ""));
-    params.add(index.set("Starting Index", 0, 0, 100000));
-    panel.setup();
-    panel.add(params);
-    panel.loadFromFile(settingsFile);
+    RUI_SETUP();
+    RUI_SET_CONFIGS_DIR("configs");
+    OFX_REMOTEUI_SERVER_SET_UI_COLUMN_WIDTH(500);
+    RUI_LOAD_FROM_XML();
     
-    stlModel.minVal = -0.5;
-    stlModel.maxVal = 0.5;
+    RUI_NEW_GROUP("Input");
+    RUI_SHARE_PARAM_WCN("Input Folder", inFolderModelPath);
+    RUI_SHARE_PARAM_WCN("Input Extension", inModelExt);
+    RUI_SHARE_PARAM_WCN("Starting Index", index, 0, INT_MAX);
+    
+    RUI_NEW_GROUP("Output");
+    RUI_SHARE_PARAM_WCN("Destination Folder", outFolderPath);
+    RUI_SHARE_PARAM_WCN("Output Extension", outExt);
+    RUI_SHARE_PARAM_WCN("Canvas Width", fboDims[0], 0, 10000);
+    RUI_SHARE_PARAM_WCN("Canvas Height", fboDims[1], 0, 10000);
+    
+    RUI_NEW_GROUP("Models");
+    RUI_SHARE_COLOR_PARAM_WCN("Model Color", modelColor);
+    
+    RUI_NEW_GROUP("Camera");
+    RUI_SHARE_PARAM_WCN("Camera Orthogonal", bCamOrtho);
+    RUI_SHARE_PARAM_WCN("Camera Position X", camPos.x, -1000, 1000);
+    RUI_SHARE_PARAM_WCN("Camera Position Y", camPos.y, -1000, 1000);
+    RUI_SHARE_PARAM_WCN("Camera Position Z", camPos.z, -1000, 1000);
+    RUI_SHARE_PARAM_WCN("Camera Look At X", camLookAt.x, -1000, 1000);
+    RUI_SHARE_PARAM_WCN("Camera Look At Y", camLookAt.y, -1000, 1000);
+    RUI_SHARE_PARAM_WCN("Camera Look At Z", camLookAt.z, -1000, 1000);
+    RUI_SHARE_PARAM_WCN("Camera Near Clip", camClip[0], 0, 10000);
+    RUI_SHARE_PARAM_WCN("Camera Far Clip", camClip[1], 0, 10000);
+    RUI_SHARE_PARAM_WCN("Camera FOV", camFOV, 0, 180);
+    
+    RUI_NEW_GROUP("Light 1");
+    RUI_SHARE_PARAM_WCN("Light 1 Position X", light1Pos.x, -1000, 1000);
+    RUI_SHARE_PARAM_WCN("Light 1 Position Y", light1Pos.y, -1000, 1000);
+    RUI_SHARE_PARAM_WCN("Light 1 Position Z", light1Pos.z, -1000, 1000);
+    RUI_SHARE_PARAM_WCN("Light 1 Attenuation Constant", light1Attenuation[0], 0, 1);
+    RUI_SHARE_PARAM_WCN("Light 1 Position Linear", light1Attenuation[1], 0, 1);
+    RUI_SHARE_PARAM_WCN("Light 1 Position Quadratic", light1Attenuation[2], 0, 1);
     
     // Todo: create output folder if it doesn't exist
     ofDirectory tmp;
-    cout << outFolderPath << endl;
-    if (!tmp.doesDirectoryExist(outFolderPath.get())) {
-        tmp.createDirectory(outFolderPath.get());
+    if (!tmp.doesDirectoryExist(outFolderPath)) {
+        tmp.createDirectory(outFolderPath);
     }
     tmp.close();
     
-    dirM.open(inFolderModelPath.toString());
-    dirM.allowExt(inModelExt.toString());
+    dirM.open(inFolderModelPath);
+    dirM.allowExt(inModelExt);
     dirM.listDir();
+    
+    
     
     cam.setFarClip(10000);
     cam.setNearClip(0.001);
@@ -35,8 +63,7 @@ void ofApp::setup(){
     
     light.setup();
     light.enable();
-    light.setPosition(2, 10, 4);
-    light.setAttenuation(1,0.02,0);
+    
     
     frameDuration = totalDuration / float(nTotalFrames);
     gifEncoder.setup(width, height, frameDuration, nColors);
@@ -120,6 +147,9 @@ void ofApp::draw(){
     ofBackground(225);
     ofSetColor(255);
     
+    light.setPosition(2, 10, 4);
+    light.setAttenuation(1,0.02,0);
+    
     if (bExporting && !instructions.empty()) {
         
         // Receive this instruction
@@ -182,7 +212,7 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::exit() {
     
-    panel.saveToFile(settingsFile);
+    RUI_SAVE_TO_XML();
 }
 
 //--------------------------------------------------------------

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxGui.h"
+#include "ofxRemoteUIServer.h"
 #include "ofxAssimpModelLoader.h"
 #include "Miniball.hpp"
 #include "ofxSTLModel.h"
@@ -30,15 +30,28 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
         void onGifSaved(string & fileName);
     
-    ofxPanel panel;
-    ofParameterGroup params;
-    ofParameter<string> inFolderModelPath; // contains the models we'll pull from
-    ofParameter<string> inModelExt;
-    ofParameter<string> outFolderPath;
-    ofParameter<int> index;
-    string settingsFile = "settings.xml";
     
     ofDirectory dirM;
+    string inFolderModelPath = "inputs"; // contains the models we'll pull from
+    string inModelExt = "ply";
+    int index = 0;
+    
+    string outFolderPath = "outputs";
+    string outExt = "tif";
+    
+    ofColor modelColor = ofColor(255);
+    
+    ofCamera cam;
+    bool bCamOrtho = true;
+    glm::vec3 camPos = {1,1,1};
+    glm::vec3 camLookAt = {0,0,0};
+    glm::vec2 camClip = {0,1000};
+    float camFOV = 50;
+    
+    ofLight light1;
+    glm::vec3 light1Pos = {2,2,2};
+    glm::vec3 light1Attenuation = {1,0.02,0};
+    
 
     bool bExporting = false;
     int currentExportFrame = 0;
@@ -56,9 +69,11 @@ class ofApp : public ofBaseApp{
     bool validSTL(string path);
     bool validBinarySTL(string path);
     
-    ofCamera cam;
     
-    ofLight light;
+    
+    ofFbo fbo;
+    glm::vec2 fboDims = {1000, 1000};
+    
     
     float scale = 1;
     float ax, ay, az;
@@ -71,7 +86,6 @@ class ofApp : public ofBaseApp{
     int height = 600;
     
     
-    ofFbo fbo;
     ofImage img;
     
     vector<float> instructions; // how far to incrementally turn the model
