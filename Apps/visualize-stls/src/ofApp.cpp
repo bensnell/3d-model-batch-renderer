@@ -61,8 +61,8 @@ void ofApp::setup(){
     cam.lookAt(glm::vec3(0, 0, 0), glm::vec3(0, 0, 1));
     cam.setFov(34);
     
-    light.setup();
-    light.enable();
+    light1.setup();
+    light1.enable();
     
     
     frameDuration = totalDuration / float(nTotalFrames);
@@ -126,7 +126,7 @@ void ofApp::update(){
             
             // Save the gif
             gifSaved = false;
-            gifEncoder.save(outFolderPath.toString() + "/" + dirM.getName(index).substr(0,dirM.getName(index).length()-inModelExt.toString().length()) + "gif");
+            gifEncoder.save(outFolderPath + "/" + dirM.getName(index).substr(0,dirM.getName(index).length()-inModelExt.length()) + "gif");
             
             // Increment the counter
             index++;
@@ -147,8 +147,8 @@ void ofApp::draw(){
     ofBackground(225);
     ofSetColor(255);
     
-    light.setPosition(2, 10, 4);
-    light.setAttenuation(1,0.02,0);
+    light1.setPosition(2, 10, 4);
+    light1.setAttenuation(1,0.02,0);
     
     if (bExporting && !instructions.empty()) {
         
@@ -166,7 +166,7 @@ void ofApp::draw(){
         ofSetColor(255);
         
         cam.begin();
-        light.enable();
+        light1.enable();
         rotMesh.enableNormals();
         rotMesh.enableColors();
         ofEnableDepthTest(); // this must be on
