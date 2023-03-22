@@ -53,8 +53,7 @@ void ofApp::setup(){
     
     dirM.open(inFolderModelPath);
     dirM.allowExt(inModelExt);
-    dirM.listDir();
-    
+    dirM.sort();
     
     
     cam.setFarClip(10000);
@@ -93,6 +92,7 @@ void ofApp::update(){
             
             // Load the model
             mesh.clear();
+            stlModel.clear();
             stlModel.readToMesh(mpath, &mesh, 1);
             rotMesh = mesh;
             
