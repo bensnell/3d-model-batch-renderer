@@ -42,6 +42,8 @@ void ofApp::setup(){
     RUI_SHARE_PARAM_WCN("Light 1 Position Linear", light1Attenuation[1], 0, 1);
     RUI_SHARE_PARAM_WCN("Light 1 Position Quadratic", light1Attenuation[2], 0, 1);
     
+    RUI_SAVE_TO_XML();
+    
     // Todo: create output folder if it doesn't exist
     ofDirectory tmp;
     if (!tmp.doesDirectoryExist(outFolderPath)) {

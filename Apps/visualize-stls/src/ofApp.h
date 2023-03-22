@@ -33,11 +33,11 @@ class ofApp : public ofBaseApp{
     
     ofDirectory dirM;
     string inFolderModelPath = "inputs"; // contains the models we'll pull from
-    string inModelExt = "ply";
+    string inModelExt = "stl";
     int index = 0;
     
     string outFolderPath = "outputs";
-    string outExt = "tif";
+    string outExt = "gif";
     
     ofColor modelColor = ofColor(255);
     
