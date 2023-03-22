@@ -1,0 +1,44 @@
+<OFX_REMOTE_UI>
+	<OFX_REMOTE_UI_V>2</OFX_REMOTE_UI_V>
+	<OFX_REMOTE_UI_PARAMS>
+		<!-- # Input ################################################################################# -->
+		<P name="Input" type="group" />
+		<P name="Input Folder" type="string">/Users/bensnell/Library/CloudStorage/Dropbox/art/202303_sculpture/output_random_predictable_40kWeights_seed10/stl</P>
+		<P name="Input Extension" type="string">stl</P>
+		<P name="Starting Index" type="int">2</P>
+		<!-- # Output ################################################################################# -->
+		<P name="Output" type="group" />
+		<P name="Destination Folder" type="string">/Users/bensnell/Library/CloudStorage/Dropbox/art/202303_sculpture/output_random_predictable_40kWeights_seed10/gif</P>
+		<P name="Output Extension" type="string">gif</P>
+		<P name="Canvas Width" type="float">1000</P>
+		<P name="Canvas Height" type="float">1000</P>
+		<!-- # Models ################################################################################# -->
+		<P name="Models" type="group" />
+		<P name="Model Color" type="color" c0.red="255" c1.green="255" c2.blue="255" c3.alpha="255" />
+		<!-- # Camera ################################################################################# -->
+		<P name="Camera" type="group" />
+		<P name="Camera Orthogonal" type="bool">1</P>
+		<P name="Camera Position X" type="float">1</P>
+		<P name="Camera Position Y" type="float">1</P>
+		<P name="Camera Position Z" type="float">1</P>
+		<P name="Camera Look At X" type="float">0</P>
+		<P name="Camera Look At Y" type="float">0</P>
+		<P name="Camera Look At Z" type="float">0</P>
+		<P name="Camera Near Clip" type="float">0</P>
+		<P name="Camera Far Clip" type="float">1000</P>
+		<P name="Camera FOV" type="float">50</P>
+		<!-- # Light 1 ################################################################################# -->
+		<P name="Light 1" type="group" />
+		<P name="Light 1 Position X" type="float">2</P>
+		<P name="Light 1 Position Y" type="float">2</P>
+		<P name="Light 1 Position Z" type="float">2</P>
+		<P name="Light 1 Attenuation Constant" type="float">1</P>
+		<P name="Light 1 Position Linear" type="float">0.02</P>
+		<P name="Light 1 Position Quadratic" type="float">0</P>
+		<!--                                                                                                  -->
+		<!-- ###################################### DISABLED PARAMS ######################################### -->
+		<!--                                                                                                  -->
+	</OFX_REMOTE_UI_PARAMS>
+	<OFX_REMOTE_UI_SERVER_PORT>57062</OFX_REMOTE_UI_SERVER_PORT>
+	<OFX_REMOTE_UI_SERVER_ENABLED>1</OFX_REMOTE_UI_SERVER_ENABLED>
+</OFX_REMOTE_UI>

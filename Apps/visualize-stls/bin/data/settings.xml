@@ -2,9 +2,9 @@
 <group>
 	<Params>
 		<Starting_Index>0</Starting_Index>
-		<In_Models_Folder></In_Models_Folder>
+		<In_Models_Folder>/Users/bensnell/Library/CloudStorage/Dropbox/art/202303_sculpture/output_random_predictable_40kWeights_seed10/stl</In_Models_Folder>
 		<In_Model_Ext>stl</In_Model_Ext>
-		<Out_Folder></Out_Folder>
+		<Out_Folder>/Users/bensnell/Library/CloudStorage/Dropbox/art/202303_sculpture/output_random_predictable_40kWeights_seed10/gif</Out_Folder>
 	</Params>
 	<group />
 </group>
